@@ -7,6 +7,8 @@ const chalk = require("chalk");
 const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
 const app = express();
+const port = process.env.PORT || 3000;
+
 // console.log("hello")
 console.log(path.join(__dirname));
 
@@ -93,28 +95,8 @@ app.get("*",(req, res)=>{
     })
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("server is up and running");
 });
 
 
-
-// const data = geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {
-//     // console.log(argv);
-//     if (error) { return { error: error }; }
-
-//     console.log("call progress");
-//     forecast(latitude, longitude, (error, forecast) => {
-//         if (error) {
-//             return { error: error };
-//         }
-//         return {
-//             latitude: latitude,
-//             longitude: longitude,
-//             location: location,
-//             forecast: forecast
-//         };
-//         //   console.log('G data', latitude, longitude,location);
-//         //   console.log('F Data', forecast)
-//     });
-// });
